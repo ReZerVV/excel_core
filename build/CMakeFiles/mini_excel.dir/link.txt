@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/mini_excel.dir/src/main.cpp.o -o mini_excel 

@@ -1,0 +1,3 @@
+/home/cyril/Programming/projects_c++/mini_excel/build/CMakeFiles/mini_excel.dir
+/home/cyril/Programming/projects_c++/mini_excel/build/CMakeFiles/edit_cache.dir
+/home/cyril/Programming/projects_c++/mini_excel/build/CMakeFiles/rebuild_cache.dir
