@@ -118,94 +118,6 @@ private:
     size_t      _index;
 };
 
-template <typename _Tp>
-class vector2 {
-public:
-    vector2()
-        :
-        x(NULL),
-        y(NULL) {}
-    vector2(const _Tp x, const _Tp y)
-        :
-        x(x),
-        y(y) {}
-    vector2(const vector2 &other)
-        :
-        x(other.x),
-        y(other.y) {}
-    vector2& operator=(const vector2 &other) {
-        x = other.x;
-        y = other.y;
-        return *this;
-    }
-    vector2(vector2 &&other) {
-        x = other.x;
-        other.x = NULL;
-        y = other.y;
-        other.y = NULL;
-    }
-public:
-    _Tp x;
-    _Tp y;
-};
-
-// class _cell_address {
-// public:
-//     using address_type = vector2<int>;
-// public:
-//     _cell_address(const std::string& lexeme) {
-//         size_t index = lexeme.find(";");
-//         std::string x = lexeme.substr(1).substr(0, index-1);
-//         if (!token::is_number(x)) {
-//             std::cout << "[x] address can only be a number" << std::endl;
-//             return;
-//         }
-//         _value.x = std::stoi(x);
-
-//         std::string y = lexeme.substr(index+1);
-//         if (!token::is_number(y)) {
-//             std::cout << "[y] address can only be a number" << std::endl;
-//             return;
-//         }
-//         _value.y = std::stoi(y);
-
-//         std::cout << _value.x << ':' << _value.y << std::endl;
-//     }
-// public:
-//     address_type value() const {
-//         return _value;
-//     }
-// private:
-//     address_type _value;
-// };
-
-// class _cell_number {
-// public:
-//     _cell_number(const std::string &lexeme) {
-//         _value = std::stod(lexeme);
-//     }
-// public:
-//     double value() {
-//         return _value;
-//     }
-// private:
-//     double _value;
-// };
-
-
-// class _cell_string {
-// public:
-//     _cell_string(const std::string &lexeme) {
-//         _value = lexeme;
-//     }
-// public:
-//     std::string value() {
-//         return _value;
-//     }
-// private:
-//     std::string _value;
-// };
-
 class table {
 public:
     friend void table_print(const table t);
@@ -266,7 +178,6 @@ private:
 private:
     std::vector<std::vector<token> >    _buffer;
 };
-
 
 void table_print(const table t) {
     if (t._buffer.empty()) {
