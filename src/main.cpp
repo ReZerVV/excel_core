@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stack>
 #include <iomanip>
 #include <bits/stdc++.h>
 
@@ -28,12 +29,28 @@ class token {
 public:
     token()
         :
-        value(std::string{ "NULL" }),
+        value(std::string{ "null" }),
         type(token_type::null) {}
     explicit token(const std::string &lexeme)
         : 
         value(lexeme),
         type(define_token_type(lexeme)) {}
+    token(const token &other)
+        :
+        value(other.value),
+        type(other.type) {}
+    token& operator=(const token &other) {
+        value = other.value;
+        type = other.type;
+        return *this;
+    }
+    token(token &&other)
+        :
+        value(other.value),
+        type(other.type) {
+            other.value.clear();
+            other.type = token_type::null;
+    }
 private:
     static token_type define_token_type(const std::string &lexeme) {
         if (is_empty(lexeme)) return token_type::null;
@@ -148,11 +165,14 @@ public:
                 if (_buffer[y][x].type == token_type::address) {
                     _buffer[y][x] = get_cell_from_address(_buffer[y][x].value);
                 }
+                if (_buffer[y][x].type == token_type::expression) {
+                    _buffer[y][x] = get_cell_from_expression(_buffer[y][x].value);
+                }
             }
         }
     }
 private:
-    token get_cell_from_address(const std::string& lexeme) {
+    token get_cell_from_address(const std::string &lexeme) {
         size_t index = lexeme.find(";");
 
         std::string str_x = lexeme.substr(1).substr(0, index-1);
@@ -174,6 +194,153 @@ private:
             return _buffer[x][y];
         }
         return token{  };
+    }
+    void calculate(std::stack<char> &operators, std::stack<token> &tokens) {
+        while (!operators.empty()) {
+            switch (operators.top()) {
+            case '+':
+            {
+                double r_value = 0.0d;
+                if (tokens.top().type == token_type::address) {
+                    std::string address = tokens.top().value;
+                    tokens.pop();
+                    tokens.push(get_cell_from_address(address));
+                }
+                if (tokens.top().type == token_type::number) {
+                    r_value = std::stod(tokens.top().value);
+                }
+                tokens.pop();
+
+                double l_value = 0.0d;
+                if (tokens.top().type == token_type::address) {
+                    std::string address = tokens.top().value;
+                    tokens.pop();
+                    tokens.push(get_cell_from_address(address));
+                }
+                if (tokens.top().type == token_type::number) {
+                    l_value = std::stod(tokens.top().value);
+                }
+                tokens.pop();
+
+                tokens.push(token{ std::to_string(l_value + r_value) });
+            }
+            break;
+            
+            case '-':
+            {
+                double r_value = 0.0d;
+                if (tokens.top().type == token_type::address) {
+                    std::string address = tokens.top().value;
+                    tokens.pop();
+                    tokens.push(get_cell_from_address(address));
+                }
+                if (tokens.top().type == token_type::number) {
+                    r_value = std::stod(tokens.top().value);
+                }
+                tokens.pop();
+
+                double l_value = 0.0d;
+                if (tokens.top().type == token_type::address) {
+                    std::string address = tokens.top().value;
+                    tokens.pop();
+                    tokens.push(get_cell_from_address(address));
+                }
+                if (tokens.top().type == token_type::number) {
+                    l_value = std::stod(tokens.top().value);
+                }
+                tokens.pop();
+
+                tokens.push(token{ std::to_string(l_value - r_value) });
+            }
+            break;
+            
+            case '*':
+            {
+                double r_value = 0.0d;
+                if (tokens.top().type == token_type::address) {
+                    std::string address = tokens.top().value;
+                    tokens.pop();
+                    tokens.push(get_cell_from_address(address));
+                }
+                if (tokens.top().type == token_type::number) {
+                    r_value = std::stod(tokens.top().value);
+                }
+                tokens.pop();
+
+                double l_value = 0.0d;
+                if (tokens.top().type == token_type::address) {
+                    std::string address = tokens.top().value;
+                    tokens.pop();
+                    tokens.push(get_cell_from_address(address));
+                }
+                if (tokens.top().type == token_type::number) {
+                    l_value = std::stod(tokens.top().value);
+                }
+                tokens.pop();
+
+                tokens.push(token{ std::to_string(l_value * r_value) });
+            }
+            break;
+
+            case '/':
+            {
+                double r_value = 0.0d;
+                if (tokens.top().type == token_type::address) {
+                    std::string address = tokens.top().value;
+                    tokens.pop();
+                    tokens.push(get_cell_from_address(address));
+                }
+                if (tokens.top().type == token_type::number) {
+                    r_value = std::stod(tokens.top().value);
+                }
+                tokens.pop();
+
+                double l_value = 0.0d;
+                if (tokens.top().type == token_type::address) {
+                    std::string address = tokens.top().value;
+                    tokens.pop();
+                    tokens.push(get_cell_from_address(address));
+                }
+                if (tokens.top().type == token_type::number) {
+                    l_value = std::stod(tokens.top().value);
+                }
+                tokens.pop();
+
+                tokens.push(token{ std::to_string(l_value / r_value) });
+            }
+            break;
+
+            default: return;
+            }
+            operators.pop();
+        }
+    }
+    token get_cell_from_expression(const std::string &lexeme) {
+        
+        std::stack<char> operators;
+        std::stack<token> tokens;
+        
+        std::string curr_lexeme{  };
+        char c_string[] = {0, '\0'};
+        
+        for (auto it = lexeme.begin()+1; it != lexeme.end(); ++it) {
+            if (isspace(*it)) {
+                continue;
+            }
+            if (*it == '+' || *it == '-' || *it == '*' || *it == '/') {
+                tokens.push(token{ curr_lexeme });
+                curr_lexeme.clear();
+                
+                operators.push(*it);
+                continue;
+            }
+            c_string[0] = *it;
+            curr_lexeme += c_string;
+        }
+        tokens.push(token{ curr_lexeme });
+        calculate(operators, tokens);
+
+        return tokens.top();
     }
 private:
     std::vector<std::vector<token> >    _buffer;

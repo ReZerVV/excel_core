@@ -189,6 +189,13 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
   /usr/include/c++/12.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
   /usr/include/c++/12.2.1/x86_64-pc-linux-gnu/bits/c++io.h \
   /usr/include/c++/12.2.1/bits/fstream.tcc \
+  /usr/include/c++/12.2.1/stack \
+  /usr/include/c++/12.2.1/deque \
+  /usr/include/c++/12.2.1/bits/stl_uninitialized.h \
+  /usr/include/c++/12.2.1/bits/stl_deque.h \
+  /usr/include/c++/12.2.1/bits/deque.tcc \
+  /usr/include/c++/12.2.1/bits/stl_stack.h \
+  /usr/include/c++/12.2.1/bits/uses_allocator.h \
   /usr/include/c++/12.2.1/iomanip \
   /usr/include/c++/12.2.1/locale \
   /usr/include/c++/12.2.1/bits/locale_facets_nonio.h \
@@ -304,13 +311,8 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
   /usr/include/c++/12.2.1/pstl/glue_algorithm_defs.h \
   /usr/include/c++/12.2.1/pstl/execution_defs.h \
   /usr/include/c++/12.2.1/bitset \
-  /usr/include/c++/12.2.1/deque \
-  /usr/include/c++/12.2.1/bits/stl_uninitialized.h \
-  /usr/include/c++/12.2.1/bits/stl_deque.h \
-  /usr/include/c++/12.2.1/bits/deque.tcc \
   /usr/include/c++/12.2.1/functional \
   /usr/include/c++/12.2.1/tuple \
-  /usr/include/c++/12.2.1/bits/uses_allocator.h \
   /usr/include/c++/12.2.1/bits/std_function.h \
   /usr/include/c++/12.2.1/unordered_map \
   /usr/include/c++/12.2.1/ext/aligned_buffer.h \
@@ -357,8 +359,6 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
   /usr/include/c++/12.2.1/set \
   /usr/include/c++/12.2.1/bits/stl_set.h \
   /usr/include/c++/12.2.1/bits/stl_multiset.h \
-  /usr/include/c++/12.2.1/stack \
-  /usr/include/c++/12.2.1/bits/stl_stack.h \
   /usr/include/c++/12.2.1/utility \
   /usr/include/c++/12.2.1/bits/stl_relops.h \
   /usr/include/c++/12.2.1/valarray \
@@ -472,10 +472,6 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
 
 /usr/include/c++/12.2.1/valarray:
 
-/usr/include/c++/12.2.1/bits/stl_stack.h:
-
-/usr/include/c++/12.2.1/stack:
-
 /usr/include/c++/12.2.1/bits/stl_multiset.h:
 
 /usr/include/c++/12.2.1/bits/stl_set.h:
@@ -546,17 +542,7 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
 
 /usr/include/c++/12.2.1/bits/std_function.h:
 
-/usr/include/c++/12.2.1/bits/fs_path.h:
-
-/usr/include/c++/12.2.1/bits/uses_allocator.h:
-
 /usr/include/c++/12.2.1/tuple:
-
-/usr/include/c++/12.2.1/map:
-
-/usr/include/c++/12.2.1/bits/stl_uninitialized.h:
-
-/usr/include/c++/12.2.1/deque:
 
 /usr/include/c++/12.2.1/pstl/glue_algorithm_defs.h:
 
@@ -626,6 +612,24 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
 
 /usr/include/bits/sigcontext.h:
 
+/usr/include/bits/sigaction.h:
+
+/usr/include/c++/12.2.1/thread:
+
+/usr/include/c++/12.2.1/ctgmath:
+
+/usr/include/bits/sigevent-consts.h:
+
+/usr/include/bits/types/sigevent_t.h:
+
+/usr/include/bits/types/sigval_t.h:
+
+/usr/include/bits/siginfo-consts-arch.h:
+
+/usr/include/bits/siginfo-consts.h:
+
+/usr/include/bits/siginfo-arch.h:
+
 /usr/include/c++/12.2.1/bits/gslice.h:
 
 /usr/include/c++/12.2.1/bits/refwrap.h:
@@ -641,8 +645,6 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
 /usr/include/c++/12.2.1/bits/ptr_traits.h:
 
 /usr/include/c++/12.2.1/ext/type_traits.h:
-
-/usr/include/bits/sigaction.h:
 
 /usr/include/c++/12.2.1/bits/regex_scanner.tcc:
 
@@ -1006,12 +1008,6 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
 
 /usr/include/c++/12.2.1/bits/nested_exception.h:
 
-/usr/include/c++/12.2.1/thread:
-
-/usr/include/c++/12.2.1/ctgmath:
-
-/usr/include/bits/sigevent-consts.h:
-
 /usr/include/c++/12.2.1/bits/fs_dir.h:
 
 /usr/include/c++/12.2.1/bits/localefwd.h:
@@ -1025,6 +1021,8 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
 /usr/include/c++/12.2.1/ext/concurrence.h:
 
 /usr/include/bits/stdlib-float.h:
+
+/usr/include/c++/12.2.1/stack:
 
 /usr/include/c++/12.2.1/bits/hashtable_policy.h:
 
@@ -1100,6 +1098,8 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
 
 /usr/include/c++/12.2.1/cerrno:
 
+/usr/include/c++/12.2.1/bits/stl_stack.h:
+
 /usr/include/c++/12.2.1/x86_64-pc-linux-gnu/bits/gthr.h:
 
 /usr/include/bits/local_lim.h:
@@ -1162,6 +1162,10 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
 
 /usr/include/c++/12.2.1/bits/ostream.tcc:
 
+/usr/include/c++/12.2.1/bits/fs_path.h:
+
+/usr/include/c++/12.2.1/bits/uses_allocator.h:
+
 /usr/include/c++/12.2.1/typeindex:
 
 /usr/include/c++/12.2.1/x86_64-pc-linux-gnu/bits/c++io.h:
@@ -1176,6 +1180,12 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
 
 /usr/include/bits/libm-simd-decl-stubs.h:
 
+/usr/include/c++/12.2.1/deque:
+
+/usr/include/c++/12.2.1/map:
+
+/usr/include/c++/12.2.1/bits/stl_uninitialized.h:
+
 /usr/include/bits/select.h:
 
 /usr/include/c++/12.2.1/iomanip:
@@ -1187,8 +1197,6 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
 /usr/include/c++/12.2.1/numeric:
 
 /usr/include/c++/12.2.1/bits/locale_facets_nonio.h:
-
-/usr/include/bits/types/sigval_t.h:
 
 /usr/include/c++/12.2.1/ctime:
 
@@ -1209,8 +1217,6 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
 /usr/include/c++/12.2.1/bits/locale_facets_nonio.tcc:
 
 /usr/include/c++/12.2.1/bits/quoted_string.h:
-
-/usr/include/bits/types/sigevent_t.h:
 
 /usr/include/c++/12.2.1/x86_64-pc-linux-gnu/bits/stdc++.h:
 
@@ -1259,9 +1265,3 @@ CMakeFiles/mini_excel.dir/src/main.cpp.o: /home/cyril/Programming/projects_c++/m
 /usr/include/c++/12.2.1/x86_64-pc-linux-gnu/bits/ctype_inline.h:
 
 /usr/include/setjmp.h:
-
-/usr/include/bits/siginfo-arch.h:
-
-/usr/include/bits/siginfo-consts.h:
-
-/usr/include/bits/siginfo-consts-arch.h:
